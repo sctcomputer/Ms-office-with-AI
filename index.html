@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MS Office with A.I. - Join Now</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+header { background: linear-gradient(135deg, #0077ff, #00c6ff); color: white; text-align: center; padding: 40px 20px; }
+h1 span { border-right: 3px solid white; animation: blink 0.8s infinite; }
+@keyframes blink { 50% { border-color: transparent; } }
+section { max-width: 900px; margin: auto; padding: 20px; }
+.course-details, .testimonials { background: white; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+.testimonial { margin-bottom: 15px; padding: 10px; border-left: 4px solid #0077ff; }
+button { background: #0077ff; color: white; padding: 15px 30px; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; transition: 0.3s; }
+button:hover { background: #005fcc; }
+footer { text-align: center; padding: 20px; background: #222; color: white; }
+</style>
+</head>
+<body>
 
+<header>
+<h1><span id="typing"></span></h1>
+<p>Master MS Office + AI Skills in Just 16 Lessons!</p>
+</header>
+
+<section class="course-details">
+<h2>What You'll Learn</h2>
+<ul>
+<li>Microsoft Word, Excel, PowerPoint - Beginner to Advanced</li>
+<li>Gmail for Productivity</li>
+<li>Excel Dashboards</li>
+<li>AI Tools for Content Creation</li>
+<li>Practical Projects & Assignments</li>
+</ul>
+<p><strong>Course Includes:</strong> 16 HD Video Lessons, Lifetime Access, Certificate</p>
+<p><strong>Price:</strong> ₹999 only</p>
+</section>
+
+<section class="testimonials">
+<h2>Success Stories</h2>
+<div class="testimonial">"I completed the course and got a job in 2 weeks! Highly recommend." – Riya S.</div>
+<div class="testimonial">"The AI part is a game-changer. Loved it!" – Souvik D.</div>
+<div class="testimonial">"Best ₹999 I ever spent. Super practical lessons." – Arindam P.</div>
+</section>
+
+<section style="text-align:center;">
+<button id="buyBtn">Buy Now</button>
+</section>
+
+<footer>
+<p>© 2025 MS Office with A.I. | Office with AI September Batch</p>
+</footer>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+// Typing effect
+const text = "MS Office with A.I.";
+let i = 0;
+function typingEffect() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typingEffect, 150);
+  }
+}
+typingEffect();
+
+// Razorpay Test Mode Payment
+document.getElementById('buyBtn').onclick = function(e) {
+  var options = {
+    "key": "rzp_test_1234567890abcdef", // Test Key
+    "amount": 99900, // 999 INR in paise
+    "currency": "INR",
+    "name": "MS Office with A.I.",
+    "description": "Course Purchase",
+    "image": "https://i.ibb.co/S7wBzXy/logo.png",
+    "handler": function (response){
+        window.location.href = "https://wa.me/917872739553?text=Hi%20I%20have%20purchased%20the%20MS%20Office%20with%20AI%20course";
+    },
+    "prefill": {
+        "name": "",
+        "email": "",
+        "contact": ""
+    },
+    "theme": {
+        "color": "#0077ff"
+    }
+  };
+  var rzp1 = new Razorpay(options);
+  rzp1.open();
+  e.preventDefault();
+}
+</script>
+
+</body>
+</html>
